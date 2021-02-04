@@ -1,4 +1,1 @@
-let firstname;
-firstname = "john"; // any type because no value as init
-
-let lastname = "Doe"; // Type string
+const stringArray = ["a", "b", "c", "d", "e", "f", 2, true];

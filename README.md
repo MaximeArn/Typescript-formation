@@ -1,12 +1,12 @@
 # Typescript-formation
 
-#### tsc (TypeScript Compiler)
+### tsc (TypeScript Compiler)
 
-    tsc -v --> check typescript compiler version
+    tsc ./myFileToCompile.ts -v --> check typescript compiler version
 
-    tsc -w --> run tsc and watch saves to recompile
+    tsc ./myFileToCompile -w --> run tsc and watch saves to recompile
 
-#### Strict types VS Dynamic types
+### Strict types VS Dynamic types
 
 **type by inference :**
 
@@ -29,4 +29,38 @@ any value */
 let age: number;
 age = 36;
 /* We force typescript to consider age as a number and only a number*/
+```
+
+### Array Types
+
+**first way:**
+
+```typescript
+const numberArray: number[] = [1, 2, 3, 4, 5];
+/* the first way use the type of the elements followed by [] to 
+denote an array of that element type*/
+```
+
+**second way:**
+
+```typescript
+const stringArray: Array<string> = ["a", "b", "c", "d", "e", "f"];
+/* The second way uses a generic array type, Array<elemType>*/
+```
+
+**Inference on array:**
+
+```typescript
+const stringArray = ["a", "b", "c", "d", "e", "f"];
+/* The inference works on arrays too
+typescript will type this array as a string array*/
+```
+
+```typescript
+const mixedArray = ["a", "b", "c", "d", "e", "f", 2, true];
+/*  typescript will type this array as an array of either string 
+or number or boolean
+typescript type :
+const stringArray: (string | number | boolean)[]
+*/
 ```

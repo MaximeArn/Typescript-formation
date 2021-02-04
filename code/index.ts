@@ -1,1 +1,2 @@
-const stringArray = ["a", "b", "c", "d", "e", "f", 2, true];
+const mixedTuple: [string, number, boolean] = ["hello", 3, true];
+mixedTuple.push("a new item");

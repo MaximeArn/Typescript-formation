@@ -1,7 +1,6 @@
-enum Roles {
-  visitor,
-  user,
-  moderator,
-  admin = 2,
-}
-console.log(Roles[2]); // return "admin"
+const inputValue: unknown = 32;
+let age: number;
+
+typeof inputValue === "number"
+  ? (age = inputValue)
+  : console.error("age have not a valid format");

@@ -166,3 +166,26 @@ enum Roles {
 }
 console.log(Roles[2]); // return "Admin"
 ```
+
+### Unknown type
+
+##### principle
+
+_The Unknown type is like the Any type but without the loopholes. Where with an "any" type we can assign the value to typed variables, we cannot with the "unknown" type_
+
+```typescript
+const inputValue: unknown = 32;
+const age: number = inputValue;
+//Type 'unknown' is not assignable to type 'number'.
+```
+
+_To assign the real type of the unknown variable we must do a type verification using the "typeof"_
+
+```typescript
+const inputValue: unknown = 32;
+let age: number;
+
+typeof inputValue === "number"
+  ? (age = inputValue)
+  : console.error("age have not a valid format");
+```

@@ -1,2 +1,7 @@
-const mixedTuple: [string, number, boolean] = ["hello", 3, true];
-mixedTuple.push("a new item");
+enum Roles {
+  visitor,
+  user,
+  moderator,
+  admin = 2,
+}
+console.log(Roles[2]); // return "admin"

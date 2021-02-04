@@ -116,3 +116,53 @@ mixedTuple[3] = 65; // return error
 let position: [number, number] = [40.7127281, -74.0060152];
 position.push("a new point"); // do not return any error
 ```
+
+### Enum
+
+##### Principle :
+
+_"an enum is a way of giving more friendly names to sets of numeric values."_
+
+```typescript
+enum Roles {
+  visitor,
+  user,
+  moderator,
+  admin,
+}
+console.log(Roles.admin); // return 3 (index of admin property)
+```
+
+values are automatically assigned beginning at 0 but we can override that. We can specify the first value to change the beginning value or change every values.
+
+```typescript
+enum Roles {
+  visitor = 10,
+  user,
+  moderator,
+  admin,
+}
+console.log(Roles.admin); // return 13
+```
+
+```typescript
+enum Roles {
+  visitor = 10,
+  user,
+  moderator,
+  admin = 2,
+}
+console.log(Roles.admin); // return 2
+```
+
+moreover enum allow us to get the name of the value using its numeric value
+
+```typescript
+enum Roles {
+  visitor,
+  user,
+  moderator,
+  admin = 2,
+}
+console.log(Roles[2]); // return "Admin"
+```

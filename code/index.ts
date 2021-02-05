@@ -1,6 +1,5 @@
-const inputValue: unknown = 32;
-let age: number;
+const sum = (nbr1: number, nbr2: number, nbr3?: number): number =>
+  nbr3 ? nbr1 + nbr2 + nbr3 : nbr1 + nbr2;
 
-typeof inputValue === "number"
-  ? (age = inputValue)
-  : console.error("age have not a valid format");
+sum(1, 4);
+sum(3, 10, 24);

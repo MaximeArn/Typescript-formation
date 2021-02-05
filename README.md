@@ -189,3 +189,62 @@ typeof inputValue === "number"
   ? (age = inputValue)
   : console.error("age have not a valid format");
 ```
+
+### Typing functions
+
+##### Inference
+
+```typescript
+const sum = (nbr1, nbr2) => nbr1 + nbr2;
+//const sum: (nbr1: any, nbr2: any) => any
+```
+
+_there is two ways for typing functions:_
+
+##### The "Function" type
+
+_the function type is the less restrictive way to type a function.
+It accept a the function without regarding the params types or the return type_
+
+```typescript
+let sum: Function;
+
+sum = (nbr1: number, nbr2: number): number => nbr1 + nbr2;
+sum = console.log;
+sum = () => {
+  console.log(1 + 1 === 2);
+};
+```
+
+##### Well type a function
+
+_We can describe in detail a function.
+We must type the parameters and the return of the function
+Typescript will not only verify taht it is a function, It will verify params and return types_
+
+```typescript
+let sum: (nbr1: number, nbr2: number) => number;
+
+sum = (nbr1: number, nbr2: number): number => nbr1 + nbr2;
+//right type no problem
+sum = () => {
+  console.log(1 + 1 === 2);
+};
+/* error : Type '() => void' is not assignable to type '(nbr1: number, nbr2: number) => number'.
+Type 'void' is not assignable to type 'number'. */
+```
+
+:warning: "void" is used to type the return of a function that return nothing (undefined)
+
+##### Optionnal parameters
+
+```typescript
+const sum = (nbr1: number, nbr2: number, nbr3?: number): number =>
+  nbr3 ? nbr1 + nbr2 + nbr3 : nbr1 + nbr2;
+// sum can be called with either 2 or 3 arguments
+
+sum(1, 4);
+// return 5
+sum(3, 10, 24);
+// return  37
+```

@@ -1,3 +1,17 @@
-const getTTC = (price: number, tax: number = 0.2): number => price * (1 + tax);
-console.log(getTTC(150));
-console.log(getTTC(150, 0.05));
+type UserObj = {
+  firstname: string;
+  lastname: string;
+  age: number;
+  email: string;
+  city: string;
+  isOnAge: boolean;
+};
+
+const user1: UserObj = {
+  firstname: "john",
+  lastname: "doe",
+  age: 25,
+  email: "john.doe@gmail.com",
+  city: "New-York",
+  isOnAge: true,
+};

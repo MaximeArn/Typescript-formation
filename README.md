@@ -249,7 +249,7 @@ sum(3, 10, 24);
 // return  37
 ```
 
-##### Default parameter
+##### Default-initialized parameters
 
 _We can add a default value to a parameter. This value will be used if the parameter is not provided or undefined when the function is called_
 
@@ -259,4 +259,52 @@ const getTTC = (price: number, tax: number = 0.2): number => price * (1 + tax);
 console.log(getTTC(150));
 console.log(getTTC(150, 0.05));
 // here we overload tax with new value "0.05"
+```
+
+### Type Aliases
+
+_a type alias is an alias(new name) that refer to an existing type_
+
+```typescript
+type BoolNbrStr = string | number | boolean;
+/* here we create an alias that correspond to the
+union type of string, number and boolean */
+
+let data: BoolNbrStr;
+data = "hello";
+data = 36;
+data = true;
+```
+
+```typescript
+type UserObj = {};
+/* here we create an alias that correspond to the
+union type of string, number and boolean */
+
+let data: BoolNbrStr;
+data = "hello";
+data = 36;
+data = true;
+```
+
+_alias can be used to describe complex data structure_
+
+```typescript
+type UserObj = {
+  firstname: string;
+  lastname: string;
+  age: number;
+  email: string;
+  city: string;
+  isOnAge: boolean;
+};
+
+const user1: UserObj = {
+  firstname: "john",
+  lastname: "doe",
+  age: 25,
+  email: "john.doe@gmail.com",
+  city: "New-York",
+  isOnAge: true,
+};
 ```

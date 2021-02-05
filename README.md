@@ -248,3 +248,15 @@ sum(1, 4);
 sum(3, 10, 24);
 // return  37
 ```
+
+##### Default parameter
+
+_We can add a default value to a parameter. This value will be used if the parameter is not provided or undefined when the function is called_
+
+```typescript
+const getTTC = (price: number, tax: number = 0.2): number => price * (1 + tax);
+//tax will be 0.2 if it is not overloaded
+console.log(getTTC(150));
+console.log(getTTC(150, 0.05));
+// here we overload tax with new value "0.05"
+```

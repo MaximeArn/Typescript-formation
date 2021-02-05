@@ -1,8 +1,6 @@
-var Roles;
-(function (Roles) {
-    Roles[Roles["visitor"] = 0] = "visitor";
-    Roles[Roles["user"] = 1] = "user";
-    Roles[Roles["moderator"] = 2] = "moderator";
-    Roles[Roles["admin"] = 2] = "admin";
-})(Roles || (Roles = {}));
-console.log(Roles[2]); // return "Admin"
+var getTTC = function (price, tax) {
+    if (tax === void 0) { tax = 0.2; }
+    return price * (1 + tax);
+};
+console.log(getTTC(150));
+console.log(getTTC(150, 0.05));

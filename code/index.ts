@@ -1,5 +1,3 @@
-const sum = (nbr1: number, nbr2: number, nbr3?: number): number =>
-  nbr3 ? nbr1 + nbr2 + nbr3 : nbr1 + nbr2;
-
-sum(1, 4);
-sum(3, 10, 24);
+const getTTC = (price: number, tax: number = 0.2): number => price * (1 + tax);
+console.log(getTTC(150));
+console.log(getTTC(150, 0.05));

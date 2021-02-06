@@ -308,3 +308,20 @@ const user1: UserObj = {
   isOnAge: true,
 };
 ```
+
+### Literal types
+
+_"There are three sets of literal types available in TypeScript today: strings, numbers, and booleans; by using literal types you can allow an exact value which a string, number, or boolean must have."_
+
+```typescript
+/* When using const the value will never change that is why typescript will
+set the type to the value "Hello" and not to the type string */
+
+const word = "Hello";
+// type --> const word: "Hello"
+
+/* When using a let or a var we are telling that the value of the variable can change. Typescript will set the type as the type of the initial value by inference */
+
+let word2 = "Hi";
+// type --> let word2: string
+```

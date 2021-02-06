@@ -311,6 +311,8 @@ const user1: UserObj = {
 
 ### Literal types
 
+
+
 _"There are three sets of literal types available in TypeScript today: strings, numbers, and booleans; by using literal types you can allow an exact value which a string, number, or boolean must have."_
 
 ```typescript
@@ -325,3 +327,5 @@ const word = "Hello";
 let word2 = "Hi";
 // type --> let word2: string
 ```
+
+_"The process of going from an infinite number of potential cases (there are an infinite number of possible string values) to a smaller, finite number of potential case (in helloWorld’s case: 1) is called narrowing."_

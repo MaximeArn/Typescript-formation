@@ -344,3 +344,23 @@ const sum = (
 console.log(typeof sum(10, 20)); //number
 console.log(typeof sum(10, 20, "string")); // string
 ```
+
+### Type Assertions
+
+_when the developer know more precisely the type of a data than typescript. Typescript let us a way to say to the compiler "trust me, I know what I’m doing"_
+
+##### As Syntax
+
+```typescript
+const someValue: unknown = "this is a string";
+
+const strLength: number = (someValue as string).length;
+```
+
+##### Angle-bracket syntax
+
+```typescript
+const someValue: unknown = "this is a string";
+
+const strLength: number = (<string>someValue).length;
+```

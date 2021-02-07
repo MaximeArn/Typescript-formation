@@ -1,6 +1,16 @@
-var sum = function (nbr1, nbr2, returnType) {
-    if (returnType === void 0) { returnType = "number"; }
-    return returnType === "number" ? nbr1 + nbr2 : String(nbr1 + nbr2);
-};
-console.log(typeof sum(10, 20));
-console.log(typeof sum(10, 20, "string"));
+var User = /** @class */ (function () {
+    function User(obj) {
+        for (var field in obj) {
+            this[field] = obj[field];
+        }
+    }
+    return User;
+}());
+var user1 = new User({
+    username: "Franck",
+    age: 35,
+    XP: 234,
+    defense: 154,
+    attack: 54
+});
+console.log(user1);

@@ -364,3 +364,34 @@ const someValue: unknown = "this is a string";
 
 const strLength: number = (<string>someValue).length;
 ```
+
+### Classes
+
+##### creation
+
+_we must type all the properties of the class and all the parameters of the constructor while remaining consistent to avoid type errors in constructor body_
+
+```typescript
+class User {
+  username: string;
+  age: number;
+  XP: number;
+  defense: number;
+  attack: number;
+
+  constructor(obj: User) {
+    for (const field in obj) {
+      this[field] = obj[field];
+    }
+  }
+}
+
+// An instance of the User class has the type User
+const User1 = new User({
+  username: "Franck",
+  age: 35,
+  XP: 234,
+  defense: 154,
+  attack: 54,
+});
+```

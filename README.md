@@ -455,6 +455,8 @@ console.log(user1.getAge()); // 35
 
 ##### readonly
 
+_readonly access modifier allow us to read the property but we can not modify its value_
+
 ```typescript
 class Player {
   constructor(
@@ -482,4 +484,22 @@ const player1 = new Player(
 );
 
 console.log(player1.DbId); // log "602053dd84b6b39fdf08f8cd"
+```
+
+### Interfaces
+
+##### readonly in interfaces
+
+```typescript
+interface DogInterface {
+  color: string;
+  readonly age: number;
+}
+
+const dog: DogInterface = {
+  color: "brown",
+  age: 18,
+};
+dog.age = 35; /*TS error "Cannot assign to 'age' 
+because it is a read-only property"*/
 ```

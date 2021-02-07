@@ -311,8 +311,6 @@ const user1: UserObj = {
 
 ### Literal types
 
-
-
 _"There are three sets of literal types available in TypeScript today: strings, numbers, and booleans; by using literal types you can allow an exact value which a string, number, or boolean must have."_
 
 ```typescript
@@ -329,3 +327,20 @@ let word2 = "Hi";
 ```
 
 _"The process of going from an infinite number of potential cases (there are an infinite number of possible string values) to a smaller, finite number of potential case (in helloWorld’s case: 1) is called narrowing."_
+
+_the literal types are often combined to union types_
+
+```typescript
+type literalStringOrNbr = "number" | "string";
+type strOrNbr = string | number;
+
+const sum = (
+  nbr1: number,
+  nbr2: number,
+  returnType: literalStringOrNbr = "number"
+  //literal type and default argument value
+): strOrNbr => (returnType === "number" ? nbr1 + nbr2 : String(nbr1 + nbr2));
+
+console.log(typeof sum(10, 20)); //number
+console.log(typeof sum(10, 20, "string")); // string
+```

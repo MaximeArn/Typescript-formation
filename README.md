@@ -422,3 +422,33 @@ const wizard1 = new Wizard({
   element: "fire",
 });
 ```
+
+##### Public, Private, Getters, Setters
+
+```typescript
+class Player {
+  constructor(
+    public username: string,
+    private age: number,
+    public XP: number,
+    public defense: number,
+    private attack: number
+  ) {}
+
+  getAge() {
+    return this.age;
+  }
+
+  getAttack() {
+    return this.attack;
+  }
+
+  setAttack(newAttack) {
+    this.attack = newAttack;
+  }
+}
+
+const user1 = new Player("Franck", 35, 234, 154, 54);
+
+console.log(user1.getAge()); // 35
+```

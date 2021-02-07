@@ -395,3 +395,30 @@ const User1 = new User({
   attack: 54,
 });
 ```
+
+##### Inheritance
+
+```typescript
+type Elements = "fire" | "ice" | "water" | "stone";
+
+class Wizard extends Player {
+  mana: number;
+  element: Elements;
+
+  constructor({ mana, element, ...rest }: Wizard) {
+    super({ ...rest });
+    this.mana = mana;
+    this.element = element;
+  }
+}
+
+const wizard1 = new Wizard({
+  username: "Franck",
+  age: 35,
+  XP: 234,
+  defense: 154,
+  attack: 54,
+  mana: 256,
+  element: "fire",
+});
+```

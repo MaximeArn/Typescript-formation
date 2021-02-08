@@ -1,25 +1,14 @@
-type Languages = "fr" | "en";
-
-interface CarInterface {
-  brand: string;
-  gear?: number;
-  age: number;
-  sayAge(language: Languages): string;
+interface Rectangle {
+  length: number;
+  width: number;
 }
 
-class Car implements CarInterface {
-  constructor(
-    readonly brand: string,
-    readonly gear: number,
-    public age: number
-  ) {}
-
-  sayAge(language: Languages) {
-    return language === "fr"
-      ? `j'ai ${this.age} ans `
-      : `I am ${this.age} years old`;
-  }
+interface Parallelepiped extends Rectangle {
+  height: number;
 }
 
-const opel = new Car("opel", 5, 3);
-console.log(opel.sayAge("en")); // I am 3 years old
+const parallelepiped: Parallelepiped = {
+  length: 5,
+  width: 6,
+  height: 3,
+};

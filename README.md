@@ -572,3 +572,39 @@ class Car implements CarInterface {
 const opel = new Car("opel", 5, 3);
 console.log(opel.sayAge("en")); // I am 3 years old
 ```
+
+##### Interfaces Extending
+
+_like classes interfaces can extend from other interfaces_
+
+```typescript
+interface Rectangle {
+  length: number;
+  width: number;
+}
+
+interface Parallelepiped extends Rectangle {
+  height: number;
+}
+
+const parallelepiped: Parallelepiped = {
+  length: 5,
+  width: 6,
+  height: 3,
+};
+
+const parallelepiped2: Parallelepiped = {
+  length: 5,
+  height: 3,
+};
+/* Property 'width' is missing in type '{ length: number; height: number; }' but required
+in type 'Parallelepiped'*/
+
+const parallelepiped3: Parallelepiped = {
+  length: 5,
+  width: 6,
+  height: 3,
+  color: "blue",
+};
+/* Object literal may only specify known properties, and 'color' does not exist in type 'Parallelepiped'. */
+```

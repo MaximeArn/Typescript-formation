@@ -1,25 +1,15 @@
-// class Player {
-//   username: string;
-//   age: number;
-//   XP: number;
-//   defense: number;
-//   attack: number;
-//   constructor(obj: Player) {
-//     for (const field in obj) {
-//       this[field] = obj[field];
-//     }
-//   }
-// }
-var Player = /** @class */ (function () {
-    function Player(username, age, XP, defense, attack, DbId) {
-        this.username = username;
-        this.age = age;
-        this.XP = XP;
-        this.defense = defense;
-        this.attack = attack;
-        this.DbId = DbId;
+var Car = /** @class */ (function () {
+    function Car(brand, gear) {
+        this.brand = brand;
+        this.gear = gear;
     }
-    return Player;
+    Car.prototype.getGear = function () {
+        return this.gear;
+    };
+    Car.prototype.getBrand = function () {
+        return this.brand;
+    };
+    return Car;
 }());
-var player1 = new Player("Franck", 35, 234, 154, 54, "602053dd84b6b39fdf08f8cd");
-console.log(player1.DbId); // log "602053dd84b6b39fdf08f8cd"
+var opel = new Car("opel", 5);
+console.log(opel.getBrand() + " is of type " + typeof opel.getBrand());

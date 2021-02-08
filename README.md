@@ -516,3 +516,29 @@ const complexFunc: ComplexFunc = (param1, param2, param3, param4) =>
 
 console.log(typeof complexFunc(1, 2, 3, 4)); // log string
 ```
+
+### Interfaces and Classes
+
+##### Implement the interface
+
+```typescript
+interface CarInterface {
+  readonly brand: string;
+  readonly gear?: number;
+}
+
+class Car implements CarInterface {
+  constructor(readonly brand: string, readonly gear: number) {}
+
+  getGear() {
+    return this.gear;
+  }
+
+  getBrand() {
+    return this.brand;
+  }
+}
+
+const opel = new Car("opel", 5);
+console.log(opel.getBrand()); // log "opel"
+```

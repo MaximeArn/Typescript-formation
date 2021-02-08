@@ -1,7 +1,19 @@
-interface ComplexFunc {
-  (param1: number, param2: number, param3: number, param4: number): string;
+interface CarInterface {
+  readonly brand: string;
+  readonly gear?: number;
 }
-const complexFunc: ComplexFunc = (param1, param2, param3, param4) =>
-  String(param1 + param2 + param3 + param4);
 
-console.log(typeof complexFunc(1, 2, 3, 4)); // log string
+class Car implements CarInterface {
+  constructor(readonly brand: string, readonly gear: number) {}
+
+  getGear() {
+    return this.gear;
+  }
+
+  getBrand() {
+    return this.brand;
+  }
+}
+
+const opel = new Car("opel", 5);
+console.log(opel.getBrand());

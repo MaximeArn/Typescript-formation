@@ -1,19 +1,25 @@
+type Languages = "fr" | "en";
+
 interface CarInterface {
-  readonly brand: string;
-  readonly gear?: number;
+  brand: string;
+  gear?: number;
+  age: number;
+  sayAge(language: Languages): string;
 }
 
 class Car implements CarInterface {
-  constructor(readonly brand: string, readonly gear: number) {}
+  constructor(
+    readonly brand: string,
+    readonly gear: number,
+    public age: number
+  ) {}
 
-  getGear() {
-    return this.gear;
-  }
-
-  getBrand() {
-    return this.brand;
+  sayAge(language: Languages) {
+    return language === "fr"
+      ? `j'ai ${this.age} ans `
+      : `I am ${this.age} years old`;
   }
 }
 
-const opel = new Car("opel", 5);
-console.log(opel.getBrand());
+const opel = new Car("opel", 5, 3);
+console.log(opel.sayAge("en")); // I am 3 years old

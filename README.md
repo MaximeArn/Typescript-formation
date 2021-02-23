@@ -365,6 +365,43 @@ const someValue: unknown = "this is a string";
 const strLength: number = (<string>someValue).length;
 ```
 
+### Intersection Types
+
+```typescript
+interface Human {
+  height: number;
+  weight: number;
+  age: number;
+  sex: "female" | "male";
+}
+
+interface Animal {
+  race: string;
+  color: string;
+}
+
+type Werewolf = Animal & Human;
+
+const werewolf: Werewolf = {
+  height: 178,
+  weight: 85,
+  age: 150,
+  sex: "male",
+}; /*
+  Type '{ height: number; weight: number; age: number; sex: "male"; }'
+   is missing the following properties from type 'Animal': race, color
+  */
+
+const werewolf: Werewolf = {
+  height: 178,
+  weight: 85,
+  age: 150,
+  sex: "male",
+  race: "wolf",
+  color: "brown",
+}; // OK
+```
+
 ### Classes
 
 ##### creation
@@ -474,14 +511,7 @@ class Player {
     is a read-only property."*/
 }
 
-const player1 = new Player(
-  "Franck",
-  35,
-  234,
-  154,
-  54,
-  "602053dd84b6b39fdf08f8cd"
-);
+const player1 = new Player("Franck", 35, 234, 154, 54, "602053dd84b6b39fdf08f8cd");
 
 console.log(player1.DbId); // log "602053dd84b6b39fdf08f8cd"
 ```
@@ -556,16 +586,10 @@ interface CarInterface {
 }
 
 class Car implements CarInterface {
-  constructor(
-    readonly brand: string,
-    readonly gear: number,
-    public age: number
-  ) {}
+  constructor(readonly brand: string, readonly gear: number, public age: number) {}
 
   sayAge(language: Languages) {
-    return language === "fr"
-      ? `j'ai ${this.age} ans `
-      : `I am ${this.age} years old`;
+    return language === "fr" ? `j'ai ${this.age} ans ` : `I am ${this.age} years old`;
   }
 }
 

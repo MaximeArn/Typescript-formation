@@ -1,24 +1,22 @@
-interface Parallelepiped {
-  length: number;
-  width: number;
+interface Human {
   height: number;
-}
-
-interface Texture {
-  material: string;
-  aspect: string;
-}
-
-interface Brick extends Parallelepiped, Texture {
-  color: string;
   weight: number;
+  age: number;
+  sex: "female" | "male";
 }
 
-const brick1: Brick = {
-  length: 5,
-  width: 6,
-  height: 3,
-  weight: 1.6,
-  aspect: "brillant",
+interface Animal {
+  race: string;
+  color: string;
+}
+
+type Werewolf = Animal & Human;
+
+const werewolf: Werewolf = {
+  height: 178,
+  weight: 85,
+  age: 150,
+  sex: "male",
+  race: "wolf",
+  color: "brown",
 };
-/* Type '{ length: number; width: number; height: number; weight: number; aspect: string; }' is missing the following properties from type 'Brick': color, material */

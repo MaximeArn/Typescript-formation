@@ -668,6 +668,8 @@ from type 'Brick': color, material */
 
 ### static properties and methods
 
+#### properties
+
 ```typescript
 class Person {
   static readonly definition: string = "a human being regarded as an individual.";
@@ -678,5 +680,23 @@ new Person().definition; //ERROR
 //Property 'definition' is a static member of type 'Person'
 
 console.log(Person.definition);
+// a human being regarded as an individual.
+```
+
+#### methods
+
+```typescript
+class Person {
+  constructor() {}
+
+  static sayHello() {
+    console.log("Hello world !!");
+  }
+}
+
+new Person().sayHello(); //ERROR
+//Property 'sayHello' is a static member of type 'Person'
+
+Person.sayHello();
 // a human being regarded as an individual.
 ```

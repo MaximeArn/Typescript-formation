@@ -1,10 +1,13 @@
 class Person {
-  static readonly definition: string = "a human being regarded as an individual.";
   constructor() {}
+
+  static sayHello() {
+    console.log("Hello world !!");
+  }
 }
 
-new Person().definition;
-//Property 'definition' is a static member of type 'Person'
+new Person().sayHello(); //ERROR
+//Property 'sayHello' is a static member of type 'Person'
 
-console.log(Person.definition);
+Person.sayHello();
 // a human being regarded as an individual.

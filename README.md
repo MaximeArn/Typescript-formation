@@ -700,3 +700,41 @@ new Person().sayHello(); //ERROR
 Person.sayHello();
 // a human being regarded as an individual.
 ```
+
+### abstract classes
+
+an abstract class is a class that cannot be instantiated. She can be used to create other classes using inheritance that can be instantiated.
+
+```typescript
+abstract class Person {
+  constructor() {}
+
+  static sayHello() {
+    console.log("Hello world !!");
+  }
+}
+new Person(); //ERROR
+//Cannot create an instance of an abstract class
+```
+
+we can create abstract methods in abstract classes. We must only provide the signature of the method. methods with the "abstract" keyword must obligatorily be implemented in classes extending the abstract class.
+
+```typescript
+abstract class Person {
+  constructor() {}
+
+  abstract saySomething(something: string): void;
+}
+
+class Women extends Person {
+  saySomething(something: string) {
+    console.log(something);
+  }
+}
+
+new Women().saySomething();
+// Expected 1 arguments, but got 0
+
+new Women().saySomething("hello I am a woman");
+// log "hello I am a woman"
+```

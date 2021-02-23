@@ -1,13 +1,17 @@
-class Person {
+abstract class Person {
   constructor() {}
 
-  static sayHello() {
-    console.log("Hello world !!");
+  abstract saySomething(something: string): void;
+}
+
+class Women extends Person {
+  saySomething(something: string) {
+    console.log(something);
   }
 }
 
-new Person().sayHello(); //ERROR
-//Property 'sayHello' is a static member of type 'Person'
+new Women().saySomething();
+// Expected 1 arguments, but got 0
 
-Person.sayHello();
-// a human being regarded as an individual.
+new Women().saySomething("hello I am a woman");
+// log "hello I am a woman"

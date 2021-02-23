@@ -738,3 +738,19 @@ new Women().saySomething();
 new Women().saySomething("hello I am a woman");
 // log "hello I am a woman"
 ```
+
+### Generics
+
+generics are usefull when we don't know the type of a data. Instead of using any type and loose the information of the data's type, generics will automatically detect the type.
+
+```typescript
+const saySomething: any = (sth: any): any => sth;
+let notTyped = saySomething("hello");
+// let notTyped: any
+```
+
+```typescript
+const saySomething = <T>(sth: T): T => sth;
+let typedData = saySomething(true);
+// let typedData: boolean
+```

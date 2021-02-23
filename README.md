@@ -665,3 +665,18 @@ height: number; weight: number; aspect: string; }'
 is missing the following properties 
 from type 'Brick': color, material */
 ```
+
+### static properties and methods
+
+```typescript
+class Person {
+  static readonly definition: string = "a human being regarded as an individual.";
+  constructor() {}
+}
+
+new Person().definition; //ERROR
+//Property 'definition' is a static member of type 'Person'
+
+console.log(Person.definition);
+// a human being regarded as an individual.
+```

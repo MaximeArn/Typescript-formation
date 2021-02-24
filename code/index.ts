@@ -1,20 +1,16 @@
-class Database<T> {
-  private datas: T[] = [];
-
-  saveData(data: T): void {
-    this.datas.push(data);
-  }
-
-  getAll(): T[] {
-    return this.datas;
-  }
+interface Task {
+  title: string;
+  description: string;
+  color: string;
 }
 
-const stringDb = new Database<string>();
-// set the typeof T at the instantiation
+const createTask = (title: string, description: string, color: string): Task => {
+  let newTask: Partial<Task> = {}; //ERROR
+  // Type '{}' is missing the following properties from type 'Task': title, description, color
 
-stringDb.saveData("hello");
-stringDb.saveData("goodbye");
+  newTask.title = title;
+  newTask.description = description;
+  newTask.color = color;
 
-const datas = stringDb.getAll(); // const datas: string[]
-console.log(datas); // ["hello", "goodbye"]
+  return newTask as Task;
+};

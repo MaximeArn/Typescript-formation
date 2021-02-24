@@ -790,7 +790,7 @@ class Database<T> {
   }
 
   getAll(): T[] {
-    return this.datas;
+    return [...this.datas];
   }
 }
 
@@ -802,4 +802,50 @@ stringDb.saveData("goodbye");
 
 const datas = stringDb.getAll(); // const datas: string[]
 console.log(datas); // ["hello", "goodbye"]
+```
+
+### Utility types
+
+#### Partial
+
+the partial will return the same type that we have passed but with all properties optionnals
+
+```typescript
+interface Task {
+  title: string;
+  description: string;
+  color: string;
+}
+
+const createTask = (title: string, description: string, color: string): Task => {
+  let newTask: Task = {}; //ERROR
+  /* Type '{}' is missing the following properties from type 'Task':
+  title, description, color */
+
+  newTask.title = title;
+  newTask.description = description;
+  newTask.color = color;
+
+  return newTask;
+};
+```
+
+with the partial
+
+```typescript
+interface Task {
+  title: string;
+  description: string;
+  color: string;
+}
+
+const createTask = (title: string, description: string, color: string): Task => {
+  let newTask: Partial<Task> = {};
+
+  newTask.title = title;
+  newTask.description = description;
+  newTask.color = color;
+
+  return newTask as Task;
+};
 ```

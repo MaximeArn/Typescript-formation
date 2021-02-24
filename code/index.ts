@@ -1,17 +1,20 @@
-interface User<T> {
-  age: number;
-  name: string;
-  hobbies: T; //dynamic type
+class Database<T> {
+  private datas: T[] = [];
+
+  saveData(data: T): void {
+    this.datas.push(data);
+  }
+
+  getAll(): T[] {
+    return this.datas;
+  }
 }
 
-const User1: User<string> = {
-  age: 25,
-  name: "John",
-  hobbies: "I love sport and cinema",
-};
+const stringDb = new Database<string>();
+// set the typeof T at the instantiation
 
-const User2: User<string[]> = {
-  age: 25,
-  name: "John",
-  hobbies: ["sport", "cinema"],
-};
+stringDb.saveData("hello");
+stringDb.saveData("goodbye");
+
+const datas = stringDb.getAll(); // const datas: string[]
+console.log(datas); // ["hello", "goodbye"]

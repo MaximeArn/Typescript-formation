@@ -1,15 +1,17 @@
-var Car = /** @class */ (function () {
-    function Car(brand, gear, age) {
-        this.brand = brand;
-        this.gear = gear;
-        this.age = age;
+var Database = /** @class */ (function () {
+    function Database() {
+        this.datas = [];
     }
-    Car.prototype.sayAge = function (language) {
-        return language === "fr"
-            ? "j'ai " + this.age + " ans "
-            : "I am " + this.age + " years old";
+    Database.prototype.saveData = function (data) {
+        this.datas.push(data);
     };
-    return Car;
+    Database.prototype.getAll = function () {
+        return this.datas;
+    };
+    return Database;
 }());
-var opel = new Car("opel", 5, 3);
-console.log(opel.sayAge("en")); // I am 3 years old
+var stringDb = new Database();
+stringDb.saveData("hello");
+stringDb.saveData("goodbye");
+var datas = stringDb.getAll(); // const datas: string[]
+console.log(datas);

@@ -1,16 +1,16 @@
-interface Task {
-  title: string;
-  description: string;
-  color: string;
+interface User {
+  name: string;
+  age: number;
+  sex: "male" | "female";
+  role: "user" | "admin";
 }
 
-const createTask = (title: string, description: string, color: string): Task => {
-  let newTask: Partial<Task> = {}; //ERROR
-  // Type '{}' is missing the following properties from type 'Task': title, description, color
-
-  newTask.title = title;
-  newTask.description = description;
-  newTask.color = color;
-
-  return newTask as Task;
+const sensibleUser: Readonly<User> = {
+  name: "john",
+  age: 25,
+  sex: "male",
+  role: "user",
 };
+
+sensibleUser.role = "admin"; //ERROR
+//Cannot assign to 'role' because it is a read-only

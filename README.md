@@ -899,3 +899,53 @@ is missing the following properties from type 'Required<User>':
 description, adress 
 */
 ```
+
+#### Pick utility
+
+```typescript
+Pick<Type, "field1" | "field2">
+```
+
+Pick create a new type using based on an existing one. We specify the properties we want in the new type.
+
+```typescript
+interface User {
+  name: string;
+  age: number;
+  sex: "male" | "female";
+  role: "user" | "admin";
+  description: string;
+  adress: string;
+}
+
+type UserAtCreation = Pick<User, "name" | "age" | "role">;
+
+const user1: UserAtCreation = {
+  name: "John",
+  age: 25,
+  role: "user",
+};
+```
+
+#### Omit utility
+
+the Omit utility as the Pick utility create a new type based on an existing one but the keys specified are not those we want to keep but those we want to remove from the original type.
+
+```typescript
+interface User {
+  name: string;
+  age: number;
+  sex: "male" | "female";
+  role: "user" | "admin";
+  description: string;
+  adress: string;
+}
+
+type FacultativeFields = Omit<User, "name" | "age" | "role">;
+
+const user1: FacultativeFields = {
+  sex: "female",
+  description: "my description",
+  adress: "my adress",
+};
+```

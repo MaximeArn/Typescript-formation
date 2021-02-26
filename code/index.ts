@@ -1,4 +1,4 @@
 type role = "wizard" | "archer" | "knight" | "elf" | "orc";
 
-type humanRole = Exclude<role, "elf" | "orc">;
-// type humanRole = "wizard" | "archer" | "knight"
+type nonHuman = Extract<role, "wizard" | "archer" | "knight">;
+// type nonHuman = "wizard" | "archer" | "knight"

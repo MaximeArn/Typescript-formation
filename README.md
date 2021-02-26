@@ -960,3 +960,14 @@ type role = "wizard" | "archer" | "knight" | "elf" | "orc";
 type humanRole = Exclude<role, "elf" | "orc">;
 // type humanRole = "wizard" | "archer" | "knight"
 ```
+
+#### Extract
+
+Constructs a type by extracting from Type all union members that are assignable to Union.
+
+```typescript
+type role = "wizard" | "archer" | "knight" | "elf" | "orc";
+
+type nonHuman = Extract<role, "wizard" | "archer" | "knight">;
+// type nonHuman = "wizard" | "archer" | "knight"
+```

@@ -1,4 +1,4 @@
-type role = "wizard" | "archer" | "knight" | "elf" | "orc";
+type ageType = string | number | null | undefined;
 
-type nonHuman = Extract<role, "wizard" | "archer" | "knight">;
-// type nonHuman = "wizard" | "archer" | "knight"
+type StrictAgeType = NonNullable<ageType>;
+// type StrictUser = string | number

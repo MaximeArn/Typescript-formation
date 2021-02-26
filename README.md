@@ -949,3 +949,14 @@ const user1: FacultativeFields = {
   adress: "my adress",
 };
 ```
+
+#### Exclude
+
+Constructs a type by excluding from Type all union members that are assignable to ExcludedUnion.
+
+```typescript
+type role = "wizard" | "archer" | "knight" | "elf" | "orc";
+
+type humanRole = Exclude<role, "elf" | "orc">;
+// type humanRole = "wizard" | "archer" | "knight"
+```

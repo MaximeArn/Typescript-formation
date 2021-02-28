@@ -2,9 +2,13 @@
 
 ### tsc (TypeScript Compiler)
 
-    tsc ./myFileToCompile.ts -v --> check typescript compiler version
+    tsc -v --> check typescript compiler version
+
+    tsc ./myFileToCompile --out build.js --> out option is use to change the outpout file name
 
     tsc ./myFileToCompile -w --> run tsc and watch saves to recompile
+
+    tsc -- init --> create a tsconfig.json file
 
 ### Strict types VS Dynamic types
 

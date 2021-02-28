@@ -18,6 +18,10 @@ the tsconfig file is used to define the options of the compiler.
 
     --> outDir : the path of the directory that must contains the compiled files
 
+    --> exclude : exclude is an array of paths. Each path provided in exclude array will be ignored by the compiler.If we don't put the exclude option "node_modules" are ignored by default.
+
+    --> include : include is an array of paths. When include is not provided, all the .ts files are compiled. If we provide the include option only paths contained in include will be compiled.
+
 ### Strict types VS Dynamic types
 
 ##### type by inference :

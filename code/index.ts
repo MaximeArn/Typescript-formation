@@ -1,4 +1,7 @@
-type ageType = string | number | null | undefined;
+const saySomething = (something: string): void => {
+  console.log(something);
+};
 
-type StrictAgeType = NonNullable<ageType>;
-// type StrictUser = string | number
+//passing a function signature
+type saySomethingParams2 = Parameters<(something: string) => void>;
+//type saySomethingParams2 = [something: string]

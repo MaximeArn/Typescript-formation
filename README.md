@@ -982,3 +982,21 @@ type ageType = string | number | null | undefined;
 type StrictAgeType = NonNullable<ageType>;
 // type StrictUser = string | number
 ```
+
+#### Parameters
+
+the Parameters utility create a new type that is a tuple that contains as many key/value pairs as the function expect parameters
+
+```typescript
+const saySomething = (something: string): void => {
+  console.log(something);
+};
+
+// using the typeof the function
+type saySomethingParams = Parameters<typeof saySomething>;
+// type saySomethingParams = [something: string]
+
+//passing a function signature
+type saySomethingParams2 = Parameters<(something: string) => void>;
+//type saySomethingParams2 = [something: string]
+```

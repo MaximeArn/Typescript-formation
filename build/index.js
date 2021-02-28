@@ -1,3 +1,4 @@
+"use strict";
 var saySomething = function (something) { return something; };
 var message;
 //let message: string

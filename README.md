@@ -10,6 +10,14 @@
 
     tsc -- init --> create a tsconfig.json file
 
+### tsconfig
+
+the tsconfig file is used to define the options of the compiler.
+
+    --> rootDir : the path of the directory that contains ts files to compile
+
+    --> outDir : the path of the directory that must contains the compiled files
+
 ### Strict types VS Dynamic types
 
 ##### type by inference :

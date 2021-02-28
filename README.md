@@ -1000,3 +1000,16 @@ type saySomethingParams = Parameters<typeof saySomething>;
 type saySomethingParams2 = Parameters<(something: string) => void>;
 //type saySomethingParams2 = [something: string]
 ```
+
+#### ReturnType
+
+the return type utility create a type using the return type of a function
+
+```typescript
+const saySomething = (something: string): string => something;
+
+let message: ReturnType<typeof saySomething>;
+//let message: string
+
+message = saySomething("hello");
+```

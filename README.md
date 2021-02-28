@@ -25,6 +25,14 @@ the tsconfig file is used to define the options of the compiler.
     --> lib : By default typescript includes some Js api like math or the DOM. if we specify the lib option (that is a string array)
     we must specify manually the libraries.
 
+    --> removeComments : default false. Set to true the compiled files will not contains any comments.
+
+    --> noUnusedLocals : display a warning message if a variable is not used.
+
+    --> noUnusedParameters : display a warning message on unused parameters.
+
+    --> noImplicitReturns : display a warning message if not all the code paths in function return a value.
+
 ### Strict types VS Dynamic types
 
 type by inference :

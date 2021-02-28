@@ -14,17 +14,20 @@
 
 the tsconfig file is used to define the options of the compiler.
 
-    --> rootDir : the path of the directory that contains ts files to compile
+    --> rootDir : The path of the directory that contains ts files to compile
 
-    --> outDir : the path of the directory that must contains the compiled files
+    --> outDir : The path of the directory that must contains the compiled files
 
-    --> exclude : exclude is an array of paths. Each path provided in exclude array will be ignored by the compiler.If we don't put the exclude option "node_modules" are ignored by default.
+    --> exclude : Exclude is an array of paths. Each path provided in exclude array will be ignored by the compiler.If we don't put the exclude option "node_modules" are ignored by default.
 
-    --> include : include is an array of paths. When include is not provided, all the .ts files are compiled. If we provide the include option only paths contained in include will be compiled.
+    --> include : Include is an array of paths. When include is not provided, all the .ts files are compiled. If we provide the include option only paths contained in include will be compiled.
+
+    --> lib : By default typescript includes some Js api like math or the DOM. if we specify the lib option (that is a string array)
+    we must specify manually the libraries.
 
 ### Strict types VS Dynamic types
 
-##### type by inference :
+type by inference :
 
 ```typescript
 const firstname = "John";

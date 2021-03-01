@@ -5,8 +5,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var constructorDecorator = function (constructor) {
-    console.log(constructor);
+var constructorDecorator = function (message) {
+    return function (constructor) {
+        console.log(message);
+        console.log(constructor);
+    };
 };
 var User = (function () {
     function User(age, name, email, password) {
@@ -19,7 +22,7 @@ var User = (function () {
         return pwd == this.password;
     };
     User = __decorate([
-        constructorDecorator
+        constructorDecorator("this is a decorator factory ")
     ], User);
     return User;
 }());

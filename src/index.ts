@@ -6,11 +6,14 @@ interface UserType {
   comparePassword(pwd: string): boolean;
 }
 
-const constructorDecorator = (constructor: Function) => {
-  console.log(constructor);
+const constructorDecorator = (message: string) => {
+  return (constructor: Function) => {
+    console.log(message);
+    console.log(constructor);
+  };
 };
 
-@constructorDecorator
+@constructorDecorator("this is a decorator factory ")
 class User implements UserType {
   constructor(
     public age: number,

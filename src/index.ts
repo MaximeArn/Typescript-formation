@@ -1,6 +1,4 @@
-const saySomething = (something: string): string => something;
+import { User } from "./doNotCompile";
 
-let message: ReturnType<typeof saySomething>;
-//let message: string
-
-message = saySomething("hello");
+const john = new User(18, "John", "john@gmail.com", "secretPassword");
+john.comparePassword("password"); // retrun false

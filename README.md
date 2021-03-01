@@ -33,6 +33,8 @@ the tsconfig file is used to define the options of the compiler.
 
     --> noImplicitReturns : display a warning message if not all the code paths in function return a value.
 
+    --> module : "es2015" to allow us to use the es6 modules
+
 ### Strict types VS Dynamic types
 
 type by inference :

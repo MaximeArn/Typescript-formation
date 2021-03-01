@@ -9,7 +9,11 @@ interface UserType {
 const constructorDecorator = (message: string) => {
   return (constructor: Function) => {
     console.log(message);
-    console.log(constructor);
+    console.log(constructor.prototype);
+    console.log("adding new property");
+    constructor.prototype.newProp = "newValue";
+    console.log("new property added");
+    console.log(constructor.prototype);
   };
 };
 

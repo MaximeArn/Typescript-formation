@@ -8,7 +8,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var constructorDecorator = function (message) {
     return function (constructor) {
         console.log(message);
-        console.log(constructor);
+        console.log(constructor.prototype);
+        console.log("adding new property");
+        constructor.prototype.newProp = "newValue";
+        console.log("new property added");
+        console.log(constructor.prototype);
     };
 };
 var User = (function () {

@@ -35,6 +35,8 @@ the tsconfig file is used to define the options of the compiler.
 
     --> module : "es2015" to allow us to use the es6 modules
 
+    --> experimentalDecorators : let us use typescript decorators
+
 ### Strict types VS Dynamic types
 
 type by inference :

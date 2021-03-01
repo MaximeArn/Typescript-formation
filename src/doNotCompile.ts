@@ -6,6 +6,11 @@ interface UserType {
   comparePassword(pwd: string): boolean;
 }
 
+const log = (constructor: Function) => {
+  console.log("constructor", constructor);
+};
+
+@log
 export class User implements UserType {
   constructor(
     public age: number,

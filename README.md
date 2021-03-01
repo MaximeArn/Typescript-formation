@@ -1044,3 +1044,37 @@ let message: ReturnType<typeof saySomething>;
 
 message = saySomething("hello");
 ```
+
+### Decorators
+
+#### class decorator
+
+a decorator on a class is a function that take the constructor as its only argument and that is executed at the class declaration
+
+```typescript
+interface UserType {
+  age: number;
+  name: string;
+  email: string;
+  password: string;
+  comparePassword(pwd: string): boolean;
+}
+
+const constructorDecorator = (constructor: Function) => {
+  console.log(constructor);
+};
+
+@constructorDecorator
+class User implements UserType {
+  constructor(
+    public age: number,
+    public name: string,
+    public email: string,
+    public password: string
+  ) {}
+
+  comparePassword(pwd: string) {
+    return pwd == this.password;
+  }
+}
+```

@@ -1183,3 +1183,38 @@ second return func return
 first return func called
 
 ```
+
+#### Property Decorator
+
+a property decorator takes two arguments:
+
+--> The first one is either the prototype of the class for a Instance property or the constructor of the class for a static property.
+
+--> The second one is the name of the property.
+
+```typescript
+const logInstanceProp = (target: any, propertyKey: string) => {
+  console.log(target); // prototype of the classe
+  console.log(propertyKey);
+};
+
+const logStaticProp = (target: any, propertyKey: string) => {
+  console.log(target); // constructor of the class
+  console.log(propertyKey);
+};
+
+class User {
+  @logInstanceProp
+  age: number;
+  name: string;
+  email: string;
+  @logStaticProp
+  static password = "strongPassword";
+
+  constructor(a: number, n: string, e: string) {
+    this.age = a;
+    this.email = e;
+    this.name = n;
+  }
+}
+```

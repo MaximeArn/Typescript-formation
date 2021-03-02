@@ -5,31 +5,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var first = function () {
-    console.log("first evaluation");
-    return function (target, propertyKey, descriptor) {
-        console.log("first return func called");
-    };
+var logInstanceProp = function (target, propertyKey) {
+    console.log(target);
+    console.log(propertyKey);
 };
-var second = function () {
-    console.log("second evaluation");
-    return function (target, propertyKey, descriptor) {
-        console.log("second return func return");
-    };
+var logStaticProp = function (target, propertyKey) {
+    console.log(target);
+    console.log(propertyKey);
 };
 var User = (function () {
-    function User(age, name, email, password) {
-        this.age = age;
-        this.name = name;
-        this.email = email;
-        this.password = password;
+    function User(a, n, e) {
+        this.age = a;
+        this.email = e;
+        this.name = n;
     }
-    User.prototype.comparePassword = function (pwd) {
-        return pwd == this.password;
-    };
+    User.password = "strongPassword";
     __decorate([
-        first(),
-        second()
-    ], User.prototype, "comparePassword", null);
+        logInstanceProp
+    ], User.prototype, "age", void 0);
+    __decorate([
+        logStaticProp
+    ], User, "password", void 0);
     return User;
 }());

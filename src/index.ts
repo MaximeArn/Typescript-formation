@@ -1,28 +1,24 @@
-const first = () => {
-  console.log("first evaluation");
-  return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
-    console.log("first return func called");
-  };
+const logInstanceProp = (target: any, propertyKey: string) => {
+  console.log(target); // prototype of the classe
+  console.log(propertyKey);
 };
 
-const second = () => {
-  console.log("second evaluation");
-  return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
-    console.log("second return func return");
-  };
+const logStaticProp = (target: any, propertyKey: string) => {
+  console.log(target); // constructor of the class
+  console.log(propertyKey);
 };
 
 class User {
-  constructor(
-    public age: number,
-    public name: string,
-    public email: string,
-    public password: string
-  ) {}
+  @logInstanceProp
+  age: number;
+  name: string;
+  email: string;
+  @logStaticProp
+  static password = "strongPassword";
 
-  @first()
-  @second()
-  comparePassword(pwd: string) {
-    return pwd == this.password;
+  constructor(a: number, n: string, e: string) {
+    this.age = a;
+    this.email = e;
+    this.name = n;
   }
 }

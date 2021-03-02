@@ -1117,3 +1117,69 @@ class User implements UserType {
   }
 }
 ```
+
+#### Decorator composition
+
+we can apply multiple decorators to a declaration.
+
+On a single line:
+
+```
+@f @g x
+```
+
+On multiple lines:
+
+````
+@f
+@g
+x
+```
+
+the order of
+````
+
+each decorator expression is evaluated starting from the top to the bottom but the return function are called from the bottom to the top.
+
+```typescript
+const first = () => {
+  console.log("first evaluation");
+  return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
+    console.log("first return func called");
+  };
+};
+
+const second = () => {
+  console.log("second evaluation");
+  return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
+    console.log("second return func return");
+  };
+};
+
+class User {
+  constructor(
+    public age: number,
+    public name: string,
+    public email: string,
+    public password: string
+  ) {}
+
+  @first()
+  @second()
+  comparePassword(pwd: string) {
+    return pwd == this.password;
+  }
+}
+```
+
+```
+
+/* Evaluations */
+first evaluation
+second evaluation
+
+/* Return Func */
+second return func return
+first return func called
+
+```

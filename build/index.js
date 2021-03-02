@@ -5,11 +5,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var sealClass = function (constructor) {
-    Object.seal(constructor);
-    Object.seal(constructor.prototype);
-    console.log(constructor.prototype);
-    constructor.prototype.newProp = "newValue";
+var first = function () {
+    console.log("first evaluation");
+    return function (target, propertyKey, descriptor) {
+        console.log("first return func called");
+    };
+};
+var second = function () {
+    console.log("second evaluation");
+    return function (target, propertyKey, descriptor) {
+        console.log("second return func return");
+    };
 };
 var User = (function () {
     function User(age, name, email, password) {
@@ -21,8 +27,9 @@ var User = (function () {
     User.prototype.comparePassword = function (pwd) {
         return pwd == this.password;
     };
-    User = __decorate([
-        sealClass
-    ], User);
+    __decorate([
+        first(),
+        second()
+    ], User.prototype, "comparePassword", null);
     return User;
 }());

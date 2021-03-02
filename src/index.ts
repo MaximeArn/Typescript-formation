@@ -1,21 +1,18 @@
-interface UserType {
-  age: number;
-  name: string;
-  email: string;
-  password: string;
-  comparePassword(pwd: string): boolean;
-}
-
-const sealClass = (constructor: Function) => {
-  Object.seal(constructor);
-  Object.seal(constructor.prototype);
-  console.log(constructor.prototype);
-  constructor.prototype.newProp = "newValue";
-  //Uncaught TypeError: Cannot add property newProp, object is not extensible
+const first = () => {
+  console.log("first evaluation");
+  return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
+    console.log("first return func called");
+  };
 };
 
-@sealClass
-class User implements UserType {
+const second = () => {
+  console.log("second evaluation");
+  return (target: any, propertyKey: string, descriptor: PropertyDescriptor) => {
+    console.log("second return func return");
+  };
+};
+
+class User {
   constructor(
     public age: number,
     public name: string,
@@ -23,6 +20,8 @@ class User implements UserType {
     public password: string
   ) {}
 
+  @first()
+  @second()
   comparePassword(pwd: string) {
     return pwd == this.password;
   }

@@ -5,15 +5,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var constructorDecorator = function (message) {
-    return function (constructor) {
-        console.log(message);
-        console.log(constructor.prototype);
-        console.log("adding new property");
-        constructor.prototype.newProp = "newValue";
-        console.log("new property added");
-        console.log(constructor.prototype);
-    };
+var sealClass = function (constructor) {
+    Object.seal(constructor);
+    Object.seal(constructor.prototype);
+    console.log(constructor.prototype);
+    constructor.prototype.newProp = "newValue";
 };
 var User = (function () {
     function User(age, name, email, password) {
@@ -26,7 +22,7 @@ var User = (function () {
         return pwd == this.password;
     };
     User = __decorate([
-        constructorDecorator("this is a decorator factory ")
+        sealClass
     ], User);
     return User;
 }());

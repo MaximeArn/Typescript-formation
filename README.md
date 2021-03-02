@@ -1060,11 +1060,15 @@ interface UserType {
   comparePassword(pwd: string): boolean;
 }
 
-const constructorDecorator = (constructor: Function) => {
-  console.log(constructor);
+const sealClass = (constructor: Function) => {
+  Object.seal(constructor);
+  Object.seal(constructor.prototype);
+  console.log(constructor.prototype);
+  constructor.prototype.newProp = "newValue";
+  //Uncaught TypeError: Cannot add property newProp, object is not extensible
 };
 
-@constructorDecorator
+@sealClass
 class User implements UserType {
   constructor(
     public age: number,

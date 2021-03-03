@@ -1045,6 +1045,15 @@ let message: ReturnType<typeof saySomething>;
 message = saySomething("hello");
 ```
 
+### Conditional Types
+
+```typescript
+type type1 = string extends string ? string : number;
+//type type1 = string
+type type2 = string extends number ? string : number;
+//type type1 = number
+```
+
 ### Decorators
 
 #### class decorator

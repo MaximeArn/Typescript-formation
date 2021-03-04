@@ -5,26 +5,31 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var logInstanceProp = function (target, propertyKey) {
-    console.log(target);
-    console.log(propertyKey);
-};
-var logStaticProp = function (target, propertyKey) {
-    console.log(target);
-    console.log(propertyKey);
-};
-var User = (function () {
-    function User(a, n, e) {
-        this.age = a;
-        this.email = e;
-        this.name = n;
+function readonly(target, propertyKey, descriptor) {
+    descriptor.writable = false;
+}
+var Car = (function () {
+    function Car(brand, color, id) {
+        this.brand = brand;
+        this.color = color;
+        this.id = id;
     }
-    User.password = "strongPassword";
+    Car.prototype.setId = function (val) {
+        this.id = val;
+    };
+    Car.prototype.getId = function () {
+        return this.id;
+    };
     __decorate([
-        logInstanceProp
-    ], User.prototype, "age", void 0);
+        readonly
+    ], Car.prototype, "setId", null);
     __decorate([
-        logStaticProp
-    ], User, "password", void 0);
-    return User;
+        readonly
+    ], Car.prototype, "getId", null);
+    return Car;
 }());
+var audi = new Car("Audi", "black", 35);
+console.log(audi.getId());
+audi.getId = function () {
+    return 56;
+};

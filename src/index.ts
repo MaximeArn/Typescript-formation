@@ -1,24 +1,31 @@
-const logInstanceProp = (target: any, propertyKey: string) => {
-  console.log(target); // prototype of the classe
-  console.log(propertyKey);
-};
+function readonly(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+  descriptor.writable = false;
+}
 
-const logStaticProp = (target: any, propertyKey: string) => {
-  console.log(target); // constructor of the class
-  console.log(propertyKey);
-};
+class Car {
+  constructor(
+    public brand: string,
+    public color: "red" | "blue" | "black",
+    private id: number
+  ) {}
 
-class User {
-  @logInstanceProp
-  age: number;
-  name: string;
-  email: string;
-  @logStaticProp
-  static password = "strongPassword";
-
-  constructor(a: number, n: string, e: string) {
-    this.age = a;
-    this.email = e;
-    this.name = n;
+  @readonly
+  setId(val: number) {
+    this.id = val;
+  }
+  @readonly
+  getId() {
+    return this.id;
   }
 }
+
+const audi = new Car("Audi", "black", 35);
+console.log(audi.getId()); // 35
+audi.getId = function () {
+  return 56;
+};
+/*
+ERROR 
+Uncaught TypeError: Cannot assign to read only property 
+'getId' of object '#<Car>'
+*/

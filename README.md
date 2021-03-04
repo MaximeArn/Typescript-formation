@@ -1227,3 +1227,49 @@ class User {
   }
 }
 ```
+
+#### method and accessors decorators
+
+a method decorator take 3 parameters:
+
+```
+--> Either the constructor function of the class for a static member, or the prototype of the class for an instance member.
+
+--> The name of the member.
+
+--> The Property Descriptor for the member.
+```
+
+```typescript
+function readonly(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+  descriptor.writable = false;
+}
+
+class Car {
+  constructor(
+    public brand: string,
+    public color: "red" | "blue" | "black",
+    private id: number
+  ) {}
+
+  @readonly
+  setId(val: number) {
+    this.id = val;
+  }
+  @readonly
+  getId() {
+    return this.id;
+  }
+}
+
+const audi = new Car("Audi", "black", 35);
+console.log(audi.getId()); // 35
+audi.getId = function () {
+  return 56;
+};
+/*
+ERROR 
+Uncaught TypeError: Cannot assign to read only property 
+'getId' of object '#<Car>'
+*/
+```

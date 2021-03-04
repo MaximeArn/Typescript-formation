@@ -1,5 +1,7 @@
-function readonly(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-  descriptor.writable = false;
+function readonly(value: boolean) {
+  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+    descriptor.writable = value;
+  };
 }
 
 class Car {
@@ -9,11 +11,11 @@ class Car {
     private id: number
   ) {}
 
-  @readonly
+  @readonly(true)
   setId(val: number) {
     this.id = val;
   }
-  @readonly
+  @readonly(true)
   getId() {
     return this.id;
   }

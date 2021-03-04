@@ -1311,3 +1311,50 @@ Uncaught TypeError: Cannot assign to read only property
 'getId' of object '#<Car>'
 */
 ```
+
+## Other
+
+### Mapped Types
+
+```typescript
+type Properties = "age" | "name" | "email" | "adress" | "pseudo" | "password";
+
+type MyObject = {
+  [P in Properties]: string;
+};
+/*
+type MyObject = {
+    age: string;
+    name: string;
+    email: string;
+    adress: string;
+    pseudo: string;
+    password: string;
+}
+*/
+```
+
+```typescript
+type User = {
+  age: string;
+  name: string;
+  email: string;
+  adress: string;
+  pseudo: string;
+  password: string;
+};
+
+type OptionalUser = {
+  [P in keyof User]?: P;
+};
+/*
+type OptionalUser = {
+    age?: "age" | undefined;
+    name?: "name" | undefined;
+    email?: "email" | undefined;
+    adress?: "adress" | undefined;
+    pseudo?: "pseudo" | undefined;
+    password?: "password" | undefined;
+}
+*/
+```
